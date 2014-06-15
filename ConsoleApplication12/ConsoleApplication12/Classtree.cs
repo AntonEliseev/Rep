@@ -174,25 +174,25 @@ namespace ConsoleApplication1
             return Count(root, k);
         }
 
-        public List<int> NodesOnLevel(int level)
+        public MyList NodesOnLevel(int level)
         {
-            Queue<Node> q = new Queue<Node>();
-            List<int> res=new List<int>();
-            q.Enqueue(root);
+            Queue q = new Queue();
+            MyList res = new MyList();
+            q.Push(root);
             root.dist = 1;
-            while (q.Count()>0)
+            while (q.Count > 0)
             {
-                Node tmp = q.Dequeue();
+                Node tmp = (Node)q.Pop();
                 if (tmp.right != null)
                 {
                     tmp.right.dist = tmp.dist + 1;
-                    q.Enqueue(tmp.right);
+                    q.Push(tmp.right);
                 }
 
                 if (tmp.left != null)
                 {
                     tmp.left.dist = tmp.dist + 1;
-                    q.Enqueue(tmp.left);
+                    q.Push(tmp.left);
                 }
 
                 if (tmp.dist == level) res.Add(tmp.data);

@@ -16,9 +16,9 @@ namespace ConsoleApplication1
             int k = t.CountOnLevel(3);
             Console.WriteLine(k);
 
-            List<int> lvl = new List<int>();
+            MyList lvl = new MyList();
             lvl = t.NodesOnLevel(3);
-            foreach (int p in lvl) Console.Write("{0}\t", p);
+            lvl.Print();
 
             t.WriteTree("OutPut.txt");
             Console.ReadKey();
